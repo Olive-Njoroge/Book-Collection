@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Book = require('./Models/Book.js');
+const Book = require('../Models/Books.js');
 
 //Create
 router.post('/', async(req,res) => {
@@ -9,6 +9,8 @@ router.post('/', async(req,res) => {
         await book.save();
         res.status(201).send(book);
     }catch(error){
-        res.status(400).send(err);
+        res.status(400).send(error);
     }
 });
+
+module.exports = router;
